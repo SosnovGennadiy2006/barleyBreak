@@ -12,6 +12,13 @@
 #include <QMouseEvent>
 #include <QMainWindow>
 
+enum directions{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+};
+
 class GameTable : public QLabel
 {
     Q_OBJECT
@@ -21,6 +28,7 @@ private:
     unsigned short int TABLE_MARGINS;
     unsigned short int cellSize;
     short int hoveredCellPosition;
+    bool isDisabled;
 
 public:
     explicit GameTable(QWidget *parent = nullptr);
@@ -34,6 +42,17 @@ public:
     bool eventFilter(QObject *obj, QEvent *event);
 
     void restoreCellSize();
+
+    void Move(unsigned short int posX, unsigned short int posY);
+    void Move(directions d);
+
+    void StartGame();
+    void StopGame();
+
+    bool checkTable();
+
+signals:
+    void gameEnded();
 
 protected:
     void paintEvent(QPaintEvent *event);

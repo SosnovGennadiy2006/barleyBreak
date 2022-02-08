@@ -15,7 +15,7 @@ void CustomeButton::initUI()
                             "   border-radius: 5px;\n"
                             "}\n"
                             "QPushButton:hover{\n"
-                            "   background: #d68400;\n"
+                            "   background: #DFC18F;\n"
                             "}\n"
     ));
 
